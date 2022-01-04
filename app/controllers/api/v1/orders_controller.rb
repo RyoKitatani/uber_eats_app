@@ -4,7 +4,7 @@ module Api
 
       def create
         posted_line_foods = LineFood.where(id: params[:line_food_ids])
-        order - Order.new(
+        order = Order.new(
           total_price: total_price(posted_line_foods)
         )
         if order.save_woth_update_line_foods!(posted_line_foods)
